@@ -2,7 +2,13 @@ class TaskController < ApplicationController
     skip_before_action :verify_authenticity_token
 
     def index
-        render plain: "Welcome to rails! #{DateTime.now.strftime('%Y-%m-%d %H:%M:%S')}"
+        render plain: Task.all.map { |task| task.to_pleasant_string }.join("\n\n")
+    end
+
+    def show
+        id = params[:id]
+        task = Task.find(id)
+        render plain: task.to_pleasant_string
     end
 
     def addtask
