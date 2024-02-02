@@ -1,0 +1,18 @@
+<section class="todo-section">
+    <div class="todo-small-head">
+        <p class="todo-title"><%= section_title%></p>
+        <p class="todo-count"><%= tasks.completed.count%>/<%= tasks.count%></p>
+    </div>
+    <ul>
+        <% tasks.all.each do |task| %>
+            <li class="todo-para">
+                <label class="todo-list">
+                    <input type="checkbox" class="todo-check">
+                    <%= task.text %>
+                    <p class="todo-show-date"><%= task.due_date %></p>
+                    <img class="delete-icon" src="delete icon 2.webp" alt="Delete icon">
+                </label>
+            </li>
+        <% end %>
+    </ul>
+</section>
